@@ -5,7 +5,7 @@ LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 
 const int trigPin = 9;
 const int echoPin = 10;
-int distanceCm, distanceInch;
+int distanceCm;
 void setup() {
   lcd.begin(16, 2); // Initializes the interface to the LCD screen, and specifies the dimensions (width and height) of the display
   pinMode(trigPin, OUTPUT);
@@ -39,10 +39,10 @@ float sonicRead ()
 {
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-   digitalWrite(trigPin, HIGH);
-   delayMicroseconds(10);
-   digitalWrite(trigPin, LOW);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
  
-   unsigned long duration = pulseIn(echoPin, HIGH);
-   return duration * 0.034 / 2;
+  unsigned long duration = pulseIn(echoPin, HIGH);
+  return duration * 0.034 / 2;
 }
